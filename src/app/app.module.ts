@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { PhotoGridComponent } from './photo-grid/photo-grid.component';
 import { PhotoCardComponent } from './photo-card/photo-card.component';
+import { AutoFocusDirective } from './directives/auto-focus.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PhotoCardComponent } from './photo-card/photo-card.component';
     SearchComponent,
     PhotoGridComponent,
     PhotoCardComponent,
+    AutoFocusDirective,
   ],
   imports: [
     BrowserModule,
