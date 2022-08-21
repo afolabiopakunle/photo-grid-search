@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FlickrService} from "../services/flickr.service";
+import {IFlickrPhoto} from "../interfaces/iflickr-photo";
 
 @Component({
   selector: 'app-search',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  photos!: IFlickrPhoto[];
+  keyword!: string;
+
+  constructor(private flickrService: FlickrService) { }
 
   ngOnInit(): void {
   }
 
+  search(event: any) {
+    this.keyword = event.target.value.toLowerCase();
+    if(this.keyword && this.keyword.length > 0) {
+      this.flickrService.keywordSearch(this.keyword)
+        .subscribe({
+          next:(response) => {
+            this.photos = response;
+          }
+        })
+
+
+    }
+  }
 }
