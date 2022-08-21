@@ -1,8 +1,26 @@
 <div class="card-photo">
-  <a href="" class="">
+  <a (click)="showModal(photo)">
   <picture class="">
     <source [srcset]="photo.url + '_m.jpg'" type="image/svg+xml">
       <img class="img-fluid rounded shadow-sm" alt="...">
   </picture>
   </a>
 </div>
+
+<ng-container #vc></ng-container>
+<ng-template #modal_1>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <img src="{{photo.url + '_b.jpg'}}" alt="">
+        <div class="modal-footer d-block">
+         <p class="text-white">{{photo.title}}</p>
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal" (click)="closeModal()">Close </button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+  </div>
+</ng-template>
