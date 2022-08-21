@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <input AutoFocus class="form-control w-75 mx-auto text-center" type="search" (keyup)="search($event)" placeholder="Search">
+  <input AutoFocus class="form-control w-75 mx-auto text-center" (keyup.backspace)="clear($event)" type="search" (keyup)="search($event)" placeholder="Search">
   <app-photo-grid [photos]="photos"></app-photo-grid>
   <div
     class="search-results"
@@ -8,4 +8,6 @@
     [infiniteScrollThrottle]="50"
     (scrolled)="onScroll()"
   ></div>
+
+  <p class="text-center" *ngIf="!photos">Search for something...</p>
 </div>

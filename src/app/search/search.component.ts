@@ -44,4 +44,8 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  clear(event: any) {
+    if(event.target.value === '')
+    this.photos = []
+  }
 }
