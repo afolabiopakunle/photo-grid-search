@@ -1,0 +1,8 @@
+.card-photo {
+  transition: all 0.3s ease-in-out;
+   cursor: pointer;
+}
+
+.card-photo:hover {
+  transform: scale(0.95);
+}
