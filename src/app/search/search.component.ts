@@ -24,7 +24,6 @@ export class SearchComponent implements OnInit {
         .subscribe({
           next:(response) => {
             this.photos = response;
-            console.log(this.photos)
           },
           error: (error) => {
             console.log(error)
@@ -34,4 +33,16 @@ export class SearchComponent implements OnInit {
 
     }
   }
+
+  onScroll() {
+    console.log('scrolled')
+    if(this.keyword && this.keyword.length > 0) {
+      this.flickrService.keywordSearch(this.keyword)
+        .subscribe(res => {
+          this.photos.concat(res)
+          console.log("fresh",res)
+        })
+    }
+  }
+
 }

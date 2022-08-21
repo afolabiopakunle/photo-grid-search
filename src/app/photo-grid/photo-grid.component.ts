@@ -13,4 +13,7 @@ export class PhotoGridComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  onScroll() {
+
+  }
 }

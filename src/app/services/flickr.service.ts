@@ -11,11 +11,20 @@ import {map} from "rxjs/operators";
 export class FlickrService {
 
   flickrUrl = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&'
+
+  previousKeywordSearch!: string;
+  currentPage = 1;
+
   constructor(private http: HttpClient) { }
 
   keywordSearch(keyword:string) {
-    const params = `api_key=${environment.flickr.apiKey}&format=json&nojsoncallback=1&text=${keyword}&per_page=8`
-
+    if(this.previousKeywordSearch === keyword) {
+      this.currentPage++
+    } else {
+      this.currentPage = 1;
+    }
+    this.previousKeywordSearch = keyword;
+    const params = `api_key=${environment.flickr.apiKey}&format=json&nojsoncallback=1&text=${keyword}&per_page=8&page=${this.currentPage}`
     return this.http.get<IFlickrOutput>(this.flickrUrl + params).pipe(map((res: IFlickrOutput)=> {
       const urlArr: any[] =[];
       res.photos.photo.forEach((photo: IFlickrPhoto) => {
