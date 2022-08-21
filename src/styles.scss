@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+::-webkit-scrollbar {
+  width: 0.8em
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(242, 244, 248, 0.5);
+  border-radius: 100vw;
+  margin-block: .5em ;
+}
+
+::-webkit-scrollbar-thumb {
+  background: powderblue;
+  border-radius: 100vw;
+  border: 1px solid rgba(242, 244, 248, 0.5);
+}
+
+@supports (scrollbar-color: powderblue rgba(242, 244, 248, 0.5)) {
+  * {
+    scrollbar-color: powderblue rgba(242, 244, 248, 0.5);
+    scrollbar-width: thin;
+  }
+}
