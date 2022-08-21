@@ -14,7 +14,7 @@ export class FlickrService {
   constructor(private http: HttpClient) { }
 
   keywordSearch(keyword:string) {
-    const params = `api_key=${environment.flickr.apiKey}&text=${keyword}&per_page=6`
+    const params = `api_key=${environment.flickr.apiKey}&format=json&nojsoncallback=1&text=${keyword}&per_page=6`
 
     return this.http.get<IFlickrOutput>(this.flickrUrl + params).pipe(map((res: IFlickrOutput)=> {
       const urlArr: any[] =[];

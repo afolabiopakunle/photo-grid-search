@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-photo-grid',
@@ -7,31 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoGridComponent implements OnInit {
 
-  photos!: any[];
+  @Input() photos!: any[];
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.photos = [
-      {
-        src: 'https://a-z-animals.com/media/animals/images/original/lion1.jpg'
-      },
-      {
-        src: 'https://a-z-animals.com/media/animals/images/original/lion1.jpg'
-      },
-      {
-        src: 'https://a-z-animals.com/media/animals/images/original/lion1.jpg'
-      },
-      {
-        src: 'https://a-z-animals.com/media/animals/images/original/lion1.jpg'
-      },
-      {
-        src: 'https://a-z-animals.com/media/animals/images/original/lion1.jpg'
-      },
-      {
-        src: 'https://a-z-animals.com/media/animals/images/original/lion1.jpg'
-      }
-    ]
-  }
+  ngOnInit(): void {}
 
 }

@@ -24,6 +24,10 @@ export class SearchComponent implements OnInit {
         .subscribe({
           next:(response) => {
             this.photos = response;
+            console.log(this.photos)
+          },
+          error: (error) => {
+            console.log(error)
           }
         })
 
