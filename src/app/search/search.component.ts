@@ -31,7 +31,7 @@ export class SearchComponent implements OnInit {
         })
 
 
-    }
+    } else this.clear('')
   }
 
   onScroll() {
